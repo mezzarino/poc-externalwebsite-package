@@ -13,10 +13,11 @@ export default function Home() {
         <h1 className="mx-auto text-center text-6xl font-bold tracking-tight text-black sm:text-7xl lg:text-8xl xl:text-8xl">
         External partner website with installed shared component
         </h1>
-        <div className="mt-12 mx-auto w-96 text-black border border-black p-4">
-          <CurrencyWidget />
-        </div>
+        
       </main>
+      <div className="mt-12 mx-auto text-black border border-black p-4">
+        <CurrencyWidget apiKey={process.env.X_RAPIDAPI_KEY} apiHost={process.env.X_RAPIDAPI_HOST} />
+        </div>
     </div>
   );
 }
