@@ -27,7 +27,7 @@ export default function Home() {
         <h1 className={`mx-auto text-center text-6xl font-bold tracking-tight text-black sm:text-7xl lg:text-8xl xl:text-8xl ${lato.className}`}>
           External partner website with installed shared component
         </h1>
-        <p className="mt-12 mx-auto text-center"><FontAwesomeIcon icon={faMagnifyingGlass} className="w-4 h-4" /> Example Font Awesome free solid icon</p>
+        <p className="mt-12 mx-auto text-center"><FontAwesomeIcon icon={faMagnifyingGlass} className="w-4 h-4" /> Example Font Awesome free solid icon</p>     
       </main>
       <div className="mt-4 mx-auto text-black border border-black p-4">
         <CurrencyWidget apiKey={apiKey} apiHost={apiHost} />
