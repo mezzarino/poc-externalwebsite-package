@@ -8,6 +8,7 @@ import { apiKey, apiHost } from '../constants';
 import { CurrencyWidget } from "shared-components-mezzarino";
 
 import { Lato } from 'next/font/google'
+import Link from "next/link";
 
 const lato = Lato({
   weight: '700',
@@ -28,7 +29,10 @@ export default function Home() {
         <h1 className={`mx-auto text-center text-6xl font-bold tracking-tight text-black sm:text-7xl lg:text-8xl xl:text-8xl ${lato.className}`}>
           External partner website with installed shared component
         </h1>
-        <p className="mt-12 mx-auto text-center"><FontAwesomeIcon icon={faMagnifyingGlass} className="w-4 h-4" /> Example Font Awesome free solid icon</p>     
+        <p className="mt-12 mx-auto text-center"><FontAwesomeIcon icon={faMagnifyingGlass} className="w-4 h-4" /> Example Font Awesome free solid icon</p> 
+        <p className="mt-12 mx-auto text-center">
+            <Link href="/api-example" className="p-4 border border-white bg-white text-gray-600">Direct call to the API example</Link>
+        </p>    
       </main>
       <div className="mt-4 mx-auto text-black border border-black p-4">
         <CurrencyWidget apiKey={apiKey} apiHost={apiHost} />
