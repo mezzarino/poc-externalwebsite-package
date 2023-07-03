@@ -2,13 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "External partner website but using the API directly",
-  description: "External partner website but using the API directly"
-};
 
 export default function ApiExample() {
 
