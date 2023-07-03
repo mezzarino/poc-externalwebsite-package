@@ -17,6 +17,7 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: "External partner website with installed shared component",
+  description: "External partner website with installed shared component"
 };
 
 export default function Home() {
