@@ -31,7 +31,7 @@ export default function Home() {
         </h1>
         <p className="mt-12 mx-auto text-center"><FontAwesomeIcon icon={faMagnifyingGlass} className="w-4 h-4" /> Example Font Awesome free solid icon</p> 
         <p className="mt-12 mx-auto text-center">
-            <Link href="/api-example" className="p-4 border border-white bg-white text-gray-600">Direct call to the API example</Link>
+            <Link href="/direct-example" className="p-4 border border-white bg-white text-gray-600">Direct call to the API example</Link>
         </p>    
       </main>
       <div className="mt-4 mx-auto text-black border border-black p-4">
