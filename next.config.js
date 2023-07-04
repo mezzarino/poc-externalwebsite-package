@@ -1,16 +1,17 @@
 const ContentSecurityPolicy = `
-  default-src 'self' vercel.app;
+  default-src https: 'self' vercel.app;
   script-src 'self' 'unsafe-eval' 'unsafe-inline' vercel.app;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
   media-src 'none';
   connect-src *;
+  object-src 'none';
   font-src 'self';
 `.replace(/\n/g, '');
  
 const securityHeaders = [
   { key: 'Content-Security-Policy', value: ContentSecurityPolicy },
-  { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   { key: 'X-Frame-Options', value: 'DENY' },
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'X-DNS-Prefetch-Control', value: 'on' },
