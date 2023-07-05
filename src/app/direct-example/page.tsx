@@ -9,15 +9,42 @@ export default function ApiExample() {
     const [exchangeRate, setExchangeRate] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
-    const getExchangeRates = async () => {
-        const response = await fetch("/api/exchangerates");
-
-        if (!response.ok) {
-            throw new Error("Failed to fetch exchange rates");
+    const checkRateCache = () => {
+      const cache = localStorage.getItem("exchangeRates");
+      if (cache) {
+        const cacheData = JSON.parse(cache);
+        const cacheTime = cacheData.time;
+        const currentTime = new Date().getTime();
+  
+        if (currentTime - cacheTime <= 15 * 60 * 1000) {
+          setExchangeRate(cacheData.data);
+          setLoading(false);
+        } else {
+          localStorage.removeItem("exchangeRates");
+          getExchangeRates();
         }
-
-        setExchangeRate(await response.json());
-        setLoading(false);
+      } else {
+        getExchangeRates();
+      }
+    };
+  
+    const getExchangeRates = async () => {
+      const response = await fetch("/api/exchangerates");
+  
+      if (!response.ok) {
+        throw new Error("Failed to fetch exchange rates");
+      }
+  
+      const data = await response.json();
+  
+      const cacheData = {
+        time: new Date().getTime(),
+        data: data,
+      };
+      localStorage.setItem("exchangeRates", JSON.stringify(cacheData));
+  
+      setExchangeRate(data);
+      setLoading(false);
     };
 
     const loadingRates = <li>Loading rates...</li>
@@ -32,7 +59,7 @@ export default function ApiExample() {
     const rateContent: JSX.Element = !loading ? loadedRates as unknown as JSX.Element : loadingRates;
 
     useEffect(() => {
-        getExchangeRates();
+      checkRateCache();
     }, []);
 
   return (
