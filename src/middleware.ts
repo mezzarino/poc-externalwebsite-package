@@ -9,7 +9,6 @@ export function generateCsp() {
       name: 'script-src',
       values: [
         "'self'",
-        `'nonce-${nonce}'`,
         `'unsafe-inline'`,
         `'unsafe-eval'`,
       ],
