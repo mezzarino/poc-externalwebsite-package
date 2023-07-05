@@ -11,7 +11,6 @@ export function generateCsp() {
         "'self'",
         `'nonce-${nonce}'`,
         `'unsafe-eval'`,
-        "'strict-dynamic'",
       ],
     },
     {
