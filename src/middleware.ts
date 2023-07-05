@@ -3,15 +3,17 @@ import { NextResponse, type NextRequest } from 'next/server';
 export function generateCsp() {
   const nonce = crypto.randomUUID();
 
+  const devScriptPolicy = "'unsafe-eval'";
+  const isProduction = process.env.NODE_ENV === 'production';
+
   const csp = [
-    { name: 'default-src', values: ["'self'"] },
+    { name: 'default-src', values: ["'none'"] },
     {
       name: 'script-src',
       values: [
         "'self'",
         `'unsafe-inline'`,
-        `'unsafe-eval'`,
-      ],
+      ].concat(isProduction ? [] : devScriptPolicy),
     },
     {
       name: 'style-src',
@@ -28,6 +30,7 @@ export function generateCsp() {
     { name: 'object-src', values: ["'none'"] },
     { name: 'frame-ancestors', values: ["'none'"] },
     { name: 'form-action', values: ["'self'"] },
+    { name: 'base-uri', values: ["'none'"] },
   ];
 
   const cspString = csp
