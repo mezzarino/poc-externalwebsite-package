@@ -10,6 +10,7 @@ export function generateCsp() {
       values: [
         "'self'",
         `'nonce-${nonce}'`,
+        `'unsafe-inline'`,
         `'unsafe-eval'`,
       ],
     },
