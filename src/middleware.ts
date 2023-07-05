@@ -12,7 +12,7 @@ export function generateCsp() {
       name: 'script-src',
       values: [
         "'self'",
-        `'nonce-${nonce}'`,
+        `'unsafe-inline'`,
       ].concat(isProduction ? [] : devScriptPolicy),
     },
     {
