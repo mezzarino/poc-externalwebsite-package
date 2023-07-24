@@ -11,6 +11,9 @@
 
 module.exports = {
   reactStrictMode: true,
+  experimental: {
+    serverActions: true,
+  },
   async rewrites() {
     return [
       {

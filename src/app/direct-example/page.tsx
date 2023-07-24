@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
+import Header from "../components/header";
 
 export default function ApiExample() {
 
@@ -65,9 +66,9 @@ export default function ApiExample() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <main className="mx-auto w-auto px-4 pt-16 pb-8 sm:pt-24 lg:px-8">
-        <h1 className="mx-auto text-center text-6xl font-bold tracking-tight text-black sm:text-7xl lg:text-8xl xl:text-8xl">
-            External partner website but using the example API directly
-        </h1>
+        
+        <Header title="External partner website but using the example API directly" />
+
         <p className="mt-12 mx-auto text-center">
             <Link href="/" className="p-4 border border-white bg-white text-gray-600">Home</Link>
         </p>

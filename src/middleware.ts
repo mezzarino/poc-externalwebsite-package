@@ -11,13 +11,20 @@ export function generateCsp() {
     {
       name: 'script-src',
       values: [
-        "'self'",
-        `'unsafe-inline'`,
+        "'strict-dynamic'",
+        `'nonce-${nonce}'`,
+        "'unsafe-inline'",
+        'http:',
+        'https:'
       ].concat(isProduction ? [] : devScriptPolicy),
     },
     {
       name: 'style-src',
       values: ["'self'", `'nonce-${nonce}'`],
+    },
+    {
+      name: 'style-src-attr',
+      values: ["'self'", "'unsafe-inline'"],
     },
     {
       name: 'connect-src',
@@ -28,9 +35,12 @@ export function generateCsp() {
     { name: 'worker-src', values: ["'self'", 'blob:'] },
     { name: 'media-src', values: ["'none'"] },
     { name: 'object-src', values: ["'none'"] },
+    { name: 'frame-src', values: ["'self'"] },
     { name: 'frame-ancestors', values: ["'none'"] },
     { name: 'form-action', values: ["'self'"] },
     { name: 'base-uri', values: ["'none'"] },
+    { name: 'child-src', values: ["'self'"] },
+    { name: 'require-trusted-types-for', values: ["'script'"] }
   ];
 
   const cspString = csp
