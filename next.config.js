@@ -1,4 +1,5 @@
  const securityHeaders = [
+  { key: 'Cache-Control', value: 's-maxage=604800, stale-while-revalidate=86400' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   { key: 'X-Frame-Options', value: 'DENY' },
   { key: 'X-Content-Type-Options', value: 'nosniff' },
